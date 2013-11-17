@@ -1,0 +1,12 @@
+#!/usr/bin/expect 
+
+set timeout 3
+
+spawn /usr/bin/git clone root@puppet.<FQDN>:/etc/puppet
+
+expect_after eof { exit 0 }
+
+expect "(yes/no)?"
+send "yes\r"
+
+expect
